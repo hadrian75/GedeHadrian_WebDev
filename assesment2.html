@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/b9e2e30e74.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Course Sign Up Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Course Sign Up Page</h1>
+      <p>
+        Please Note: First Name, Last Name, Password, and Email are required
+      </p>
+      <form action="">
+        <div
+          style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px"
+        >
+          <label for="fName">First Name:</label>
+          <input
+            type="text"
+            name="fName"
+            id="fName"
+            required
+            placeholder="First Name"
+          />
+
+          <label for="lName">Last Name:</label>
+          <input
+            type="text"
+            name="lName"
+            id="lName"
+            required
+            placeholder="Last Name"
+          />
+
+          <label for="userEmail">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="userEmail"
+            required
+            placeholder="name@gmail.com"
+          />
+
+          <label for="pass">Password:</label>
+          <input type="password" name="pass" id="pass" required />
+        </div>
+
+        <p>Are you over 18 years old?</p>
+        <label class="inputLabel"
+          ><input type="radio" name="age" value="yes" required /> Yes</label
+        >
+        <label class="inputLabel"
+          ><input type="radio" name="age" value="no" required /> No</label
+        >
+
+        <p>Do you have a Credit Card or Paypal?</p>
+        <div id="parentSelect">
+          <div id="selectWrap">
+            <select name="payment" id="payment">
+              <option value="creditCard">Credit Card</option>
+              <option value="Paypal">Paypal</option>
+            </select>
+            <span>
+              <i class="fa-solid fa-arrow-up"></i>
+              <i class="fa-solid fa-arrow-down"></i>
+            </span>
+          </div>
+          <button type="submit">Submit Feedback</button>
+        </div>
+      </form>
+      <a href="assessment..html">Back</a>
+      <a href="selamat.html">Next</a>
+    </div>
+  </body>
+</html>

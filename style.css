@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+p {
+  font-size: 1em;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.note {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  height: 25px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 0 5px;
+}
+
+.radio-group label {
+  margin-right: 20px;
+}
+
+.select-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+select {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1em;
+  padding-right: 30px;
+  height: 30px;
+  border-radius: 3px;
+  text-indent: 1px;
+  text-overflow: "";
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  border: 1px solid gray;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select:focus,
+select:active {
+  outline: none;
+}
+
+button {
+  border-radius: 4px;
+  border: 1px solid gray;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: rgb(203, 198, 198);
+}
+
+#selectWrap {
+  display: flex;
+  position: relative;
+  align-items: center;
+  max-width: max-content;
+}
+
+#selectWrap select {
+  width: 180px;
+  padding-right: 40px;
+}
+
+#selectWrap span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  pointer-events: none;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+#selectWrap span i {
+  font-size: 10px;
+  line-height: 1;
+}
+#parentSelect {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  width: 350px;
+}
+
+label:not(.inputLabel) {
+  display: block;
+  float: left;
+  padding-top: 4px;
+}
