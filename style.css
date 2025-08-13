@@ -139,3 +139,7 @@ label:not(.inputLabel) {
   float: left;
   padding-top: 4px;
 }
+
+form {
+  margin-bottom: 10px;
+}
