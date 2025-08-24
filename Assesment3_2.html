@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b9e2e30e74.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        font-family: "Montserrat", sans-serif;
+      }
+      html {
+        box-sizing: border-box;
+      }
+      nav {
+        max-width: 1200px;
+        margin: 16px auto 0;
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+      }
+      nav a {
+        text-decoration: none;
+        color: #0a58ff;
+        padding: 10px 20px;
+        box-shadow: 1px 1px 10px 2px rgb(190 190 190 / 60%);
+        border-radius: 20px;
+      }
+      nav a:hover {
+        background-color: #b7b7b731;
+      }
+
+      .wrapper {
+        max-width: 900px;
+        margin: 120px auto;
+        padding: 24px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .card {
+        padding: 20px;
+        border-radius: 12px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .card h3 {
+        font-size: 36px;
+        font-weight: 300;
+        color: #e5533d;
+        margin: 0;
+      }
+
+      .card p {
+        margin: 0;
+        color: #555;
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      .card i {
+        font-size: 40px;
+        padding-top: 12px;
+        color: #ff8442;
+      }
+
+      @media (max-width: 900px) {
+        .wrapper {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .wrapper {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="Assesment3.html">Assesment 3</a>
+      <a href="Assesment3_2.html">Assesment 3 No. 2</a>
+      <a href="Assesment3_3.html">Assesment 3 No. 3</a>
+    </nav>
+
+    <div class="wrapper">
+      <div class="card">
+        <h3>$33M</h3>
+        <p>Trackable revenue generated across our portfolio</p>
+        <i class="fa-solid fa-money-bill-trend-up"></i>
+      </div>
+      <div class="card">
+        <h3>220%</h3>
+        <p>Average yearly growth rate across our clients</p>
+        <i class="fa-solid fa-money-bill-wheat"></i>
+      </div>
+      <div class="card">
+        <h3>4x</h3>
+        <p>Increase in client creative output on average</p>
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+      </div>
+    </div>
+  </body>
+</html>
