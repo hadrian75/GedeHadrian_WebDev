@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b9e2e30e74.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        font-family: "Poppins";
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        height: 100vh;
+      }
+      nav {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        justify-content: space-between;
+        background-color: #00376a;
+      }
+      a {
+        text-decoration: none;
+      }
+      nav div a {
+        color: grey;
+        font-size: 15px;
+        margin: 30px;
+      }
+      nav div a:nth-child(6) {
+        color: white;
+        height: 100%;
+        align-self: center;
+        background-color: blue;
+      }
+      nav div:nth-child(2) {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-right: 40px;
+      }
+      nav div div {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #3db166;
+      }
+      nav div div a {
+        color: white;
+        font-weight: 700;
+      }
+      nav div a:hover {
+        color: white;
+      }
+      nav div img {
+        width: 20px;
+        box-sizing: border-box;
+      }
+      nav div:nth-child(1) {
+        margin-left: 40px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .bottomNav {
+        height: 100px;
+        width: 100%;
+        background-color: white;
+        z-index: 9;
+      }
+      .heroPage img {
+        width: 100%;
+      }
+      .bottomNav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .bottomNav img {
+        height: 60px;
+        padding-left: 80px;
+      }
+      .bottomNav div {
+        display: flex;
+        gap: 20px;
+        margin-right: 80px;
+      }
+      .bottomNav div a {
+        color: black;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/1280px-Flag_of_Indonesia.svg.png"
+          alt=""
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg"
+          alt=""
+        />
+      </div>
+      <div>
+        <a href="">Mahasiswa</a>
+        <a href="">Staff</a>
+        <a href="">Alumni</a>
+        <a href="">VR Kampus Tur</a>
+        <a href="">MyPrasmul</a>
+        <div>
+          <a href="">Registrasi</a>
+        </div>
+      </div>
+    </nav>
+    <div class="bottomNav">
+      <img
+        src="data:image/png;base64,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"
+        alt=""
+      />
+      <div>
+        <a href="">Mahasiswa</a>
+        <a href="">Staff</a>
+        <a href="">Alumni</a>
+        <a href="">VR Kampus Tur</a>
+        <a href="">MyPrasmul</a>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+    <div class="heroPage">
+      <img src="heroPM.png" alt="" />
+    </div>
+  </body>
+</html>
