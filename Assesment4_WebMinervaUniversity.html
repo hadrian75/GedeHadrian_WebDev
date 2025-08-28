@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Minerva Simple</title>
+
+    <script
+      src="https://kit.fontawesome.com/b9e2e30e74.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @font-face {
+        font-family: Chronicledisp;
+        src: url("/fontFaceNoCommercial/Chronicle\ Display\ Roman.otf");
+      }
+      @font-face {
+        font-family: NeueG;
+        src: url("/fontFaceNoCommercial/NeueHaasGrotText-55Roman-Trial.otf");
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: #0b0b0b;
+        color: #fff;
+        font: 16px/1.6 Inter, Arial, sans-serif;
+        padding-top: 72px;
+        overflow-x: hidden;
+      }
+      h1 {
+        font-family: Chronicledisp;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      figure {
+        margin: 0;
+      }
+      .navBar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: #0b0b0b;
+        z-index: 100;
+      }
+      .navTop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 50px;
+      }
+      .navBrand {
+        display: flex;
+        align-items: center;
+      }
+      .brandLogo {
+        height: 36px;
+      }
+      .brandText {
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .navTopLinks {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+      }
+      .navTopLinks a:hover,
+      .navLink:hover {
+        color: #f1bf2a;
+        transition: ease-in 0.3s;
+      }
+      i {
+        cursor: pointer;
+      }
+      a,
+      p,
+      .applyBtn {
+        font-family: "NeueG";
+      }
+      .applyBtn:hover {
+        background-color: #d88e0d;
+        transition: linear 0.3s;
+      }
+      .applyBtn {
+        background: #f1bf2a;
+        color: #000;
+        font-weight: 700;
+        border: 0;
+        font-size: 1rem;
+        border-radius: 8px;
+        padding: 16px 32px;
+        cursor: pointer;
+      }
+      .navBottom {
+        border-top: 1px solid #1d1d1d;
+        border-bottom: 1px solid #1d1d1d;
+        padding: 10px 40px;
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        font-size: 14px;
+      }
+      .navLink {
+        color: white;
+      }
+      span i {
+        font-weight: 100;
+      }
+
+      .pageBox {
+        width: 1240px;
+        margin: 0 auto;
+      }
+      .heroBox {
+        text-align: center;
+        padding: 100px 0 10px;
+      }
+      .heroTitle {
+        font-family: "Chronicledisp", "Georgia", "sans-serif";
+        font-size: 116px;
+        font-weight: 100;
+        line-height: 0.95;
+        margin: 24px 0 12px;
+      }
+      .heroText {
+        color: #c8c8c8;
+        margin: 6px 0;
+      }
+      .filmWrap {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        overflow: hidden;
+        padding: 18px 0 70px;
+      }
+      .filmTrack {
+        width: 1800px;
+        margin: 0 auto;
+        display: flex;
+        gap: 26px;
+        align-items: center;
+        padding: 0 20px;
+      }
+      .cardBox {
+        flex: 0 0 auto;
+        background: #121212;
+        border: 1px solid #1f1f1f;
+        border-radius: 26px;
+        overflow: hidden;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+      }
+      .cardSm {
+        width: 300px;
+      }
+      .cardMd {
+        width: 360px;
+      }
+      .cardLg {
+        width: 560px;
+      }
+      .cardShort {
+        height: 200px;
+      }
+      .cardMid {
+        height: 240px;
+      }
+      .cardTall {
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navBar">
+      <div class="navTop">
+        <div class="navBrand">
+          <img
+            src="https://cdn.prod.website-files.com/64ca995f0fd30a33b2fd01cc/64ca995f0fd30a33b2fd03e4_minerva.svg"
+            class="brandLogo"
+            alt=""
+          />
+        </div>
+        <div class="navTopLinks">
+          <a href="#">Give</a>
+          <a href="#"><b>Request Info</b></a>
+          <a href="#"><b>Experience Minerva</b></a>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <button class="applyBtn">Apply &nbsp; →</button>
+        </div>
+      </div>
+      <div class="navBottom">
+        <span>
+          <a class="navLink" href="#">Academics</a>
+          <i class="fa-solid fa-chevron-down"></i>
+        </span>
+        <span>
+          <a class="navLink" href="#">Tuition &amp; Financial Aid</a>
+          <i class="fa-solid fa-chevron-down"></i>
+        </span>
+        <span>
+          <a class="navLink" href="#">About</a>
+          <i class="fa-solid fa-chevron-down"></i>
+        </span>
+        <span>
+          <a class="navLink" href="#">Stories &amp; Media</a>
+          <i class="fa-solid fa-chevron-down"></i>
+        </span>
+        <a class="navLink" href="#">Pedagogy</a>
+        <a class="navLink" href="#">Student Experience</a>
+        <a class="navLink" href="#">Impact &amp; Outcomes</a>
+        <a class="navLink" href="#">Global Immersion</a>
+      </div>
+    </div>
+    <div class="pageBox">
+      <section class="heroBox">
+        <h1 class="heroTitle">Learn. Belong. Lead.</h1>
+        <p class="heroText">
+          Minerva University empowers bold thinkers ready to challenge
+          convention and lead change worldwide.
+        </p>
+        <p class="heroText">
+          Our immersive global education equips you not just to succeed — but to
+          shape the future.
+        </p>
+      </section>
+    </div>
+    <section class="filmWrap" aria-label="Student Life">
+      <div class="filmTrack">
+        <figure class="cardBox cardSm cardMid">
+          <img
+            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80"
+            alt="Profile"
+          />
+        </figure>
+        <figure class="cardBox cardSm cardTall">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1756286484838-a3ac225a4f56?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Gallery"
+          />
+        </figure>
+        <figure class="cardBox cardMd cardShort">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80"
+            alt="Classroom"
+          />
+        </figure>
+        <figure class="cardBox cardLg cardTall">
+          <img
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"
+            alt="Bridge"
+          />
+        </figure>
+        <figure class="cardBox cardMd cardMid">
+          <img
+            src="https://images.unsplash.com/photo-1520975922284-6c0c4a2f7b0d?auto=format&fit=crop&w=1400&q=80"
+            alt="Columns"
+          />
+        </figure>
+        <figure class="cardBox cardSm cardTall">
+          <img
+            src="https://images.unsplash.com/photo-1531315630201-bb15abeb165f?auto=format&fit=crop&w=1200&q=80"
+            alt="Crowd"
+          />
+        </figure>
+        <figure class="cardBox cardSm cardShort">
+          <img
+            src="https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?auto=format&fit=crop&w=1200&q=80"
+            alt="Friends"
+          />
+        </figure>
+      </div>
+    </section>
+  </body>
+</html>
