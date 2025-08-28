@@ -1,0 +1,88 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Layout</title>
+    <style>
+      .el--1 {
+        background-color: rgb(180, 70, 70);
+      }
+      .el--2 {
+        background-color: rgb(162, 221, 24);
+      }
+      .el--3 {
+        background-color: rgb(16, 214, 69);
+      }
+      .el--4 {
+        background-color: rgb(17, 178, 214);
+      }
+      .el--5 {
+        background-color: rgb(69, 15, 215);
+      }
+      .el--6 {
+        background-color: rgb(199, 8, 135);
+      }
+
+      .container {
+        font-family: sans-serif;
+        background-color: rgb(193, 208, 24);
+        font-size: 24px;
+        margin: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .el {
+        flex: 1 0 15%; /* grow, shrink, basis */
+        min-width: 120px;
+        height: 100px;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+      .container:nth-child(1) .el--1 {
+        order: 1;
+      }
+      .container:nth-child(1) .el--2 {
+        order: 2;
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="el el--1">HTML</div>
+        <div class="el el--2">CSS</div>
+        <div class="el el--3">JavaScript</div>
+        <div class="el el--4">TypeScript</div>
+        <div class="el el--5">Python</div>
+        <div class="el el--6">Ruby</div>
+      </div>
+      <div class="container">
+        <div class="el el--1">HTML</div>
+        <div class="el el--2">CSS</div>
+        <div class="el el--3">JavaScript</div>
+        <div class="el el--4">TypeScript</div>
+        <div class="el el--5">Python</div>
+        <div class="el el--6">Ruby</div>
+      </div>
+      <div class="container">
+        <div class="el el--1">HTML</div>
+        <div class="el el--2">CSS</div>
+        <div class="el el--3">JavaScript</div>
+        <div class="el el--4">TypeScript</div>
+        <div class="el el--5">Python</div>
+        <div class="el el--6">Ruby</div>
+      </div>
+    </div>
+  </body>
+</html>
