@@ -130,18 +130,3 @@ footer {
     padding: 1.5rem;
   }
 }
-
-/* Mobile Kecil (480px ke bawah) */
-@media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .feature-card {
-    padding: 1.5rem;
-  }
-}
