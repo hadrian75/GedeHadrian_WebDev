@@ -433,10 +433,7 @@ img {
   color: #fff;
   margin-bottom: 12px;
 }
-.price-line .currency {
-  font-size: 18px;
-  opacity: 0.9;
-}
+
 .price-line .amount {
   font-size: 34px;
   font-weight: 300;
