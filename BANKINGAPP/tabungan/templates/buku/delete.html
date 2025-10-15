@@ -1,0 +1,12 @@
+<div>
+  Nama : {{ obj.name }} <br>
+  No. Rek : {{ obj.nomor_rekening }} <br>
+  Alamat : {{ obj.alamat }} <br>
+  Kantor : {{ obj.kantor_bank }} <br>
+  <form action="" method="POST">
+    {% csrf_token %}
+    Are you sure you want to delete this? <br>
+    <input type="submit" value="Yes"> &nbsp;
+    <a href="/tabungan/">No</a>
+  </form>
+</div>
