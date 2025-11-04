@@ -16,8 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from tabungan.views import BukuViewSet, TransaksiViewSet, JenisTabunganViewSet
+
+router = DefaultRouter()
+router.register(r'buku', BukuViewSet, basename='buku')
+router.register(r'transaksi', TransaksiViewSet, basename='transaksi')
+router.register(r'jenistabungan', JenisTabunganViewSet, basename='jenis-tabungan')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tabungan/', include('tabungan.urls')),
+    path('api/', include(router.urls)),
 ]

@@ -1,12 +1,94 @@
-<div>
-  Nama : {{ obj.name }} <br>
-  No. Rek : {{ obj.nomor_rekening }} <br>
-  Alamat : {{ obj.alamat }} <br>
-  Kantor : {{ obj.kantor_bank }} <br>
-  <form action="" method="POST">
-    {% csrf_token %}
-    Are you sure you want to delete this? <br>
-    <input type="submit" value="Yes"> &nbsp;
-    <a href="/tabungan/">No</a>
-  </form>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hapus Data Buku</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        div {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .info p {
+            margin: 8px 0;
+            color: #856404;
+        }
+
+        .warning {
+            color: #d32f2f;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        input[type="submit"] {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #da190b;
+        }
+
+        a {
+            background-color: #9E9E9E;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a:hover {
+            background-color: #757575;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Hapus Data Buku</h1>
+        
+        <div class="info">
+            <p><strong>Nama:</strong> {{ obj.nama }}</p>
+            <p><strong>No. Rek:</strong> {{ obj.nomor_rekening }}</p>
+            <p><strong>Alamat:</strong> {{ obj.alamat }}</p>
+            <p><strong>Kantor:</strong> {{ obj.kantor_bank }}</p>
+        </div>
+        
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p class="warning">⚠️ Are you sure you want to delete this?</p>
+            <input type="submit" value="Yes">
+            <a href="{% url 'tabungan:list-buku' %}">No</a>
+        </form>
+    </div>
+</body>
+</html>

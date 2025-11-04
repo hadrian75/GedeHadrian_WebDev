@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Detail - {{ buku.nama }}</title>
+    <style>
+        body { font-family: Arial; max-width: 800px; margin: 50px auto; padding: 20px; background: #f5f5f5; }
+        .card { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1 { color: #333; margin-bottom: 10px; }
+        .info p { margin: 8px 0; color: #555; }
+        .saldo { font-size: 28px; font-weight: bold; color: #4CAF50; margin: 15px 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #2196F3; color: white; }
+        .debit { color: #dc3545; font-weight: bold; }
+        .kredit { color: #28a745; font-weight: bold; }
+        .btn { display: inline-block; color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none; margin: 10px 5px 10px 0; }
+        .btn-add { background: #4CAF50; }
+        .btn-back { background: #9E9E9E; }
+        .empty { text-align: center; color: #999; padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>{{ buku.nama }}</h1>
+        <div class="info">
+            <p><strong>No. Rekening:</strong> {{ buku.nomor_rekening }}</p>
+            <p><strong>Kantor Bank:</strong> {{ buku.kantor_bank }}</p>
+            <p><strong>Alamat:</strong> {{ buku.alamat }}</p>
+        </div>
+        <div class="saldo">Saldo: Rp {{ buku.saldo }}</div>
+        <a href="{% url 'tabungan:tambah-transaksi' buku.id %}" class="btn btn-add">+ Tambah Transaksi</a>
+    </div>
+
+    <div class="card">
+        <h2>Riwayat Transaksi</h2>
+        {% if transaksi_list %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Status</th>
+                    <th>Nominal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaksi in transaksi_list %}
+                <tr>
+                    <td>{{ transaksi.tanggal }}</td>
+                    <td class="{{ transaksi.status }}">{{ transaksi.get_status_display }}</td>
+                    <td>Rp {{ transaksi.nominal }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="empty">Belum ada transaksi</p>
+        {% endif %}
+    </div>
+
+    <a href="{% url 'tabungan:list-buku' %}" class="btn btn-back">← Kembali</a>
+</body>
+</html>
