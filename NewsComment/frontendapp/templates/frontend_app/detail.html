@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Berita</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+      <!-- PERBAIKAN: href sekarang relatif ke root -->
+      <a
+        href="/"
+        class="text-blue-600 font-semibold hover:underline mb-4 inline-block"
+        >&larr; Kembali ke Daftar Berita</a
+      >
+
+      <main
+        id="berita-detail"
+        class="bg-white rounded-lg shadow-lg p-6 md:p-10 mb-8"
+      >
+        <p id="loading" class="text-gray-500">Memuat detail berita...</p>
+      </main>
+      <section>
+        <h2 class="text-2xl font-bold mb-4">Komentar</h2>
+
+        <form id="komentar-form" class="bg-white p-6 rounded-lg shadow-lg mb-8">
+          <h3 class="text-xl font-semibold mb-4">Tinggalkan Komentar</h3>
+          <div class="mb-4">
+            <label
+              for="nama"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Nama</label
+            >
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              class="w-full p-2 border border-gray-300 rounded-md"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="isi_komentar"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >Komentar</label
+            >
+            <textarea
+              id="isi_komentar"
+              name="isi_komentar"
+              rows="4"
+              class="w-full p-2 border border-gray-300 rounded-md"
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Kirim Komentar
+          </button>
+          <p id="form-message" class="text-sm mt-3"></p>
+        </form>
+
+        <div id="komentar-list" class="space-y-4"></div>
+      </section>
+    </div>
+
+    <script>
+      const API_URL = "/api/";
+
+      const beritaDetail = document.getElementById("berita-detail");
+      const loading = document.getElementById("loading");
+      const komentarList = document.getElementById("komentar-list");
+      const komentarForm = document.getElementById("komentar-form");
+      const formMessage = document.getElementById("form-message");
+
+      const getBeritaId = () => {
+        const params = new URLSearchParams(window.location.search);
+        return params.get("id");
+      };
+
+      const fetchBeritaDetail = async (id) => {
+        try {
+          const response = await fetch(`${API_URL}berita/${id}/`);
+          if (!response.ok) throw new Error("Berita tidak ditemukan");
+
+          const berita = await response.json();
+          loading.style.display = "none";
+
+          const imageUrl = berita.gambar
+            ? berita.gambar
+            : "https://placehold.co/800x600/E2E8F0/4A5568?text=Berita";
+
+          beritaDetail.innerHTML = `
+                        <img class="w-full h-64 md:h-96 object-cover rounded-lg mb-6" src="${imageUrl}" alt="${
+            berita.judul
+          }">
+                        <h1 class="text-4xl font-bold text-gray-900 mb-3">${
+                          berita.judul
+                        }</h1>
+                        <p class="text-gray-500 text-sm mb-6">Dipublikasikan: ${new Date(
+                          berita.tgl
+                        ).toLocaleString("id-ID")}</p>
+                        <div class="prose max-w-none text-gray-700 text-lg">
+                            ${berita.isi.replace(/\n/g, "<br>")}
+                        </div>
+                    `;
+
+          renderKomentar(berita.komentar);
+        } catch (error) {
+          console.error("Error fetching detail:", error);
+          loading.style.display = "none";
+          beritaDetail.innerHTML = `<p class="text-red-500">Gagal memuat berita. ${error.message}</p>`;
+        }
+      };
+
+      const renderKomentar = (komentars) => {
+        komentarList.innerHTML = "";
+        if (komentars.length === 0) {
+          komentarList.innerHTML =
+            '<p class="text-gray-500">Belum ada komentar.</p>';
+          return;
+        }
+
+        komentars.forEach((komentar) => {
+          const item = document.createElement("div");
+          item.className = "bg-white p-4 rounded-lg shadow";
+          item.innerHTML = `
+                        <p class="font-bold text-gray-900">${komentar.nama}</p>
+                        <p class="text-gray-500 text-xs mb-2">${new Date(
+                          komentar.tgl
+                        ).toLocaleString("id-ID")}</p>
+                        <p class="text-gray-700">${komentar.isi_komentar}</p>
+                    `;
+          komentarList.appendChild(item);
+        });
+      };
+
+      const handleFormSubmit = async (e) => {
+        e.preventDefault();
+
+        const beritaId = getBeritaId();
+        const nama = document.getElementById("nama").value;
+        const isi_komentar = document.getElementById("isi_komentar").value;
+
+        formMessage.textContent = "Mengirim...";
+        formMessage.className = "text-blue-600 text-sm mt-3";
+
+        try {
+          // URL fetch sekarang benar: /api/komentar/
+          const response = await fetch(`${API_URL}komentar/`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              nama: nama,
+              isi_komentar: isi_komentar,
+              berita: beritaId,
+            }),
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(JSON.stringify(errorData));
+          }
+          formMessage.textContent = "Komentar berhasil dikirim!";
+          formMessage.className = "text-green-600 text-sm mt-3";
+
+          komentarForm.reset();
+          fetchBeritaDetail(beritaId);
+        } catch (error) {
+          console.error("Error submitting comment:", error);
+          formMessage.textContent = `Gagal mengirim: ${error.message}`;
+          formMessage.className = "text-red-600 text-sm mt-3";
+        }
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const beritaId = getBeritaId();
+        if (beritaId) {
+          fetchBeritaDetail(beritaId);
+        } else {
+          loading.innerText = "ID Berita tidak ditemukan.";
+        }
+      });
+
+      komentarForm.addEventListener("submit", handleFormSubmit);
+    </script>
+  </body>
+</html>
